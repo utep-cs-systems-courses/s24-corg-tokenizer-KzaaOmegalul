@@ -60,15 +60,23 @@ char* copy_str(char *inStr, short len)
   int i = 0;
   char* outStr = malloc((len + 1) * sizeof(char)), x;
   do
+    {
       x = *(outStr + i) = *(inStr + i);
       i++;
     }
-while(x);
+  while(x);
 
-return outStr;
+  return outStr;
 }
 
 char **tokenize(char* str)
 {
-
+  char** tokens;
+  int numTokens = count_token(str);
+  for(int i = 0; i < numTokens; i++)
+    {
+      char* start = token_start(*str);
+      char* end = token_terminator(*start);
+      **tokens = copy_str(start, end - start);
+    }
 }
