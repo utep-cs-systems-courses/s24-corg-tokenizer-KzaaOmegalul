@@ -67,3 +67,8 @@ while(x);
 
 return outStr;
 }
+
+char **tokenize(char* str)
+{
+
+}
