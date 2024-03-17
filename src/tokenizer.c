@@ -17,12 +17,13 @@ int non_space_char(char c)
 
 char* token_start(char* str)
 {
-  for(int i = 0; i < strlen(str); i++)
+  while(*str)
     {
-      if(non_space_char(str[i]))
+      if(non_space_char(*str))
 	{
-	  return &str[i];
+	  return str;
 	}
+     str++;
     }
   return 0;
 }
@@ -77,6 +78,6 @@ char **tokenize(char* str)
     {
       char* start = token_start(*str);
       char* end = token_terminator(*start);
-      **tokens = copy_str(start, end - start);
+      char* token = copy_str(start, end - start);
     }
 }
