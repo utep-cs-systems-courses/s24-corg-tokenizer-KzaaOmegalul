@@ -95,7 +95,7 @@ char **tokenize(char* str)
 void print_tokens(char **tokens)
 {
   int i = 0;
-  while(tokens)
+  while(count_token(*tokens) + 1)
     {
       printf("Token[%d]: %s\n", i, *tokens);
       tokens++;
