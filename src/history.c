@@ -52,6 +52,7 @@ void print_history(List *list)
       printf("ID: %d String: %s\n", current->id, current->str);
       current = current->next;
     }
+  printf("\n");
 }
 
 void free_history(List *list)

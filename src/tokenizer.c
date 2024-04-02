@@ -39,7 +39,7 @@ char* token_terminator(char* token)
   return token;
 }
 
-int count_token(char *str)
+int count_tokens(char *str)
 {
   int counter = 0;
   int flag = non_space_char(*str);
@@ -76,8 +76,8 @@ char* copy_str(char *inStr, short len)
 char **tokenize(char* str)
 {
   int i = 0;
-  int length = count_token(str);
-  char** pointTokens = malloc(count_token(str) * sizeof(char*));
+  int length = count_tokens(str);
+  char** pointTokens = malloc(length * sizeof(char*));
   while(i < length)
     {
       str = token_start(str);
@@ -95,12 +95,13 @@ char **tokenize(char* str)
 void print_tokens(char **tokens)
 {
   int i = 0;
-  while(count_token(*tokens) + 1)
+  while(*(tokens + i) != "0")
     {
-      printf("Token[%d]: %s\n", i, *tokens);
-      tokens++;
+      printf("Token[%d]: %s\n", i, *(tokens + i));
       i++;
     }
+  printf("Token[%d]: %s\n", i, *(tokens + i));
+  printf("\n");
 }
 
 void free_tokens(char **tokens)
